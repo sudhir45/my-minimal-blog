@@ -1,0 +1,19 @@
+---
+layout: base.njk {# Inherit from the base layout #}
+---
+<article class="post">
+    <h1>{{ title }}</h1>
+    <p class="post-meta">
+        Published on <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+        {# Add author, tags etc. if you have them in front matter #}
+    </p>
+
+    <div class="post-content">
+        {{ content | safe }} {# The actual Markdown content of the post #}
+    </div>
+</article>
+
+<nav class="post-navigation">
+    {# Basic previous/next post links - Requires more complex collection sorting in Eleventy config if needed #}
+    <a href="/posts/">← Back to Blog List</a>
+</nav>

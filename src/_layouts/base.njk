@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# --- SEO --- #}
+    <title>{{ title or metadata.title }}</title> {# Page title or default site title #}
+    <meta name="description" content="{{ description or metadata.description }}"> {# Page description or default #}
+    {# Add more meta tags: canonical, Open Graph, Twitter Cards as needed #}
+    <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
+
+    {# --- Styles --- #}
+    <link rel="stylesheet" href="/css/style.css">
+    {# Add more CSS if needed #}
+
+    {# --- Favicon (Example) --- #}
+    {# <link rel="icon" href="/assets/favicon.ico" sizes="any"> #}
+    {# <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"> #}
+
+</head>
+<body>
+    {% include "header.njk" %} {# Include header partial #}
+
+    <main class="main-content">
+        {{ content | safe }} {# Where page-specific content goes #}
+    </main>
+
+    {% include "footer.njk" %} {# Include footer partial #}
+
+    {# --- Scripts --- #}
+    <script src="/js/main.js" defer></script> {# Defer loading JS #}
+</body>
+</html>

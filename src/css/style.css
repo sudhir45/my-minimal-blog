@@ -1,0 +1,142 @@
+/* --- Reset/Base --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 100%; /* Typically 16px */
+    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #333;
+    background-color: #fdfdfd; /* Slightly off-white */
+  }
+  
+  body {
+    max-width: 800px; /* Content width */
+    margin: 0 auto; /* Center content */
+    padding: 1rem 2rem; /* Padding around content */
+  }
+  
+  /* --- Typography --- */
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+    font-weight: 600; /* Semi-bold */
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  
+  p {
+    margin-bottom: 1em;
+  }
+  
+  a {
+    color: #007bff; /* A modern blue */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out; /* Smooth color transition */
+  }
+  a:hover, a:focus {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    background-color: #f0f0f0;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+  pre {
+      background-color: #f0f0f0;
+      padding: 1em;
+      border-radius: 5px;
+      overflow-x: auto; /* Handle long code lines */
+      margin-bottom: 1em;
+  }
+  pre code {
+    background-color: transparent;
+    padding: 0;
+  }
+  
+  /* --- Layout & Components --- */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+  }
+  .site-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  .site-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem; /* Space between nav items */
+  }
+  
+  .main-content {
+    min-height: 60vh; /* Ensure footer doesn't jump up */
+  }
+  
+  .site-footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* --- Blog Post Specific --- */
+  .post-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 2rem;
+  }
+  
+  .post-content img,
+  .post-content video,
+  .post-content iframe {
+    max-width: 100%; /* Responsive media */
+    height: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-radius: 5px; /* Subtle rounding */
+  }
+  
+  /* --- Basic Animation Example (Fade-in on Load) --- */
+  body {
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* --- News Section Styling (Basic) --- */
+  .news-item {
+      border-bottom: 1px dashed #eee;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+  }
+  .news-item:last-child {
+      border-bottom: none;
+  }
+  .news-source {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.5em;
+  }

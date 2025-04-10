@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: Cyber Security News Feed
+description: Aggregated news from top cybersecurity sources.
+permalink: /news/
+eleventyNavigation:
+  key: News
+  order: 3
+---
+
+# Latest Cyber Security News
+
+<p>Aggregated news from various sources. Updated periodically when the site rebuilds.</p>
+
+<div class="news-list">
+{% if newsfeeds.length > 0 %}
+    {% for item in newsfeeds %}
+        <article class="news-item">
+            <h3><a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a></h3>
+            {% if item.snippet %}
+            <p>{{ item.snippet }}{% if item.snippet.length >= 150 %}...{% endif %}</p>
+            {% endif %}
+            <p class="news-source">
+                Source: {{ item.sourceTitle }} | Published: <time datetime="{{ item.pubDate | htmlDateString }}">{{ item.pubDate | readableDate }}</time>
+            </p>
+        </article>
+    {% endfor %}
+{% else %}
+    <p>Could not load news items at this time.</p>
+{% endif %}
+</div>
+```    *   The news will only update when you rebuild and redeploy your site.
