@@ -1,0 +1,41 @@
+# .github/workflows/deploy.yml
+name: Build and Deploy Eleventy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or your default branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Allow Actions to push to gh-pages branch
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 🏗️
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Use LTS or your preferred version
+          cache: 'npm'
+
+      - name: Install Dependencies 📦
+        run: npm ci # Use ci for faster, reliable installs in CI
+
+      - name: Build Site ⚙️
+        run: npm run build # Runs 'eleventy'
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site # Directory to deploy
+          # Optional: If deploying to user/org page (username.github.io), use master/main branch:
+          # publish_branch: main
+          # Optional: If deploying to project page (username.github.io/repo-name), use gh-pages branch (default):
+          # publish_branch: gh-pages
+          # Optional: Add a CNAME file if you have a custom domain
+          # cname: yourdomain.com
